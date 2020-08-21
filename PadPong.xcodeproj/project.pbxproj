@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D845A4FA24EFF9DC0014D30B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D845A4F924EFF9DC0014D30B /* AppDelegate.swift */; };
+		D845A4FC24EFF9DC0014D30B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D845A4FB24EFF9DC0014D30B /* GameScene.sks */; };
+		D845A4FE24EFF9DC0014D30B /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = D845A4FD24EFF9DC0014D30B /* Actions.sks */; };
+		D845A50024EFF9DC0014D30B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D845A4FF24EFF9DC0014D30B /* GameScene.swift */; };
+		D845A50224EFF9DC0014D30B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D845A50124EFF9DC0014D30B /* GameViewController.swift */; };
+		D845A50524EFF9DC0014D30B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D845A50324EFF9DC0014D30B /* Main.storyboard */; };
+		D845A50724EFF9E10014D30B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D845A50624EFF9E10014D30B /* Assets.xcassets */; };
+		D845A50A24EFF9E10014D30B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D845A50824EFF9E10014D30B /* LaunchScreen.storyboard */; };
+		D845A51524EFF9E10014D30B /* PadPongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D845A51424EFF9E10014D30B /* PadPongTests.swift */; };
+		D845A52024EFF9E10014D30B /* PadPongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D845A51F24EFF9E10014D30B /* PadPongUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D845A51124EFF9E10014D30B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D845A4EE24EFF9DC0014D30B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D845A4F524EFF9DC0014D30B;
+			remoteInfo = PadPong;
+		};
+		D845A51C24EFF9E10014D30B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D845A4EE24EFF9DC0014D30B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D845A4F524EFF9DC0014D30B;
+			remoteInfo = PadPong;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D845A4F624EFF9DC0014D30B /* PadPong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PadPong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D845A4F924EFF9DC0014D30B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D845A4FB24EFF9DC0014D30B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		D845A4FD24EFF9DC0014D30B /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		D845A4FF24EFF9DC0014D30B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D845A50124EFF9DC0014D30B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D845A50424EFF9DC0014D30B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D845A50624EFF9E10014D30B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D845A50924EFF9E10014D30B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D845A50B24EFF9E10014D30B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D845A51024EFF9E10014D30B /* PadPongTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadPongTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D845A51424EFF9E10014D30B /* PadPongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadPongTests.swift; sourceTree = "<group>"; };
+		D845A51624EFF9E10014D30B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D845A51B24EFF9E10014D30B /* PadPongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PadPongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D845A51F24EFF9E10014D30B /* PadPongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadPongUITests.swift; sourceTree = "<group>"; };
+		D845A52124EFF9E10014D30B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D845A4F324EFF9DC0014D30B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A50D24EFF9E10014D30B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A51824EFF9E10014D30B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D845A4ED24EFF9DC0014D30B = {
+			isa = PBXGroup;
+			children = (
+				D845A4F824EFF9DC0014D30B /* PadPong */,
+				D845A51324EFF9E10014D30B /* PadPongTests */,
+				D845A51E24EFF9E10014D30B /* PadPongUITests */,
+				D845A4F724EFF9DC0014D30B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D845A4F724EFF9DC0014D30B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D845A4F624EFF9DC0014D30B /* PadPong.app */,
+				D845A51024EFF9E10014D30B /* PadPongTests.xctest */,
+				D845A51B24EFF9E10014D30B /* PadPongUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D845A4F824EFF9DC0014D30B /* PadPong */ = {
+			isa = PBXGroup;
+			children = (
+				D845A4F924EFF9DC0014D30B /* AppDelegate.swift */,
+				D845A4FB24EFF9DC0014D30B /* GameScene.sks */,
+				D845A4FD24EFF9DC0014D30B /* Actions.sks */,
+				D845A4FF24EFF9DC0014D30B /* GameScene.swift */,
+				D845A50124EFF9DC0014D30B /* GameViewController.swift */,
+				D845A50324EFF9DC0014D30B /* Main.storyboard */,
+				D845A50624EFF9E10014D30B /* Assets.xcassets */,
+				D845A50824EFF9E10014D30B /* LaunchScreen.storyboard */,
+				D845A50B24EFF9E10014D30B /* Info.plist */,
+			);
+			path = PadPong;
+			sourceTree = "<group>";
+		};
+		D845A51324EFF9E10014D30B /* PadPongTests */ = {
+			isa = PBXGroup;
+			children = (
+				D845A51424EFF9E10014D30B /* PadPongTests.swift */,
+				D845A51624EFF9E10014D30B /* Info.plist */,
+			);
+			path = PadPongTests;
+			sourceTree = "<group>";
+		};
+		D845A51E24EFF9E10014D30B /* PadPongUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D845A51F24EFF9E10014D30B /* PadPongUITests.swift */,
+				D845A52124EFF9E10014D30B /* Info.plist */,
+			);
+			path = PadPongUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D845A4F524EFF9DC0014D30B /* PadPong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D845A52424EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPong" */;
+			buildPhases = (
+				D845A4F224EFF9DC0014D30B /* Sources */,
+				D845A4F324EFF9DC0014D30B /* Frameworks */,
+				D845A4F424EFF9DC0014D30B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PadPong;
+			productName = PadPong;
+			productReference = D845A4F624EFF9DC0014D30B /* PadPong.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D845A50F24EFF9E10014D30B /* PadPongTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D845A52724EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPongTests" */;
+			buildPhases = (
+				D845A50C24EFF9E10014D30B /* Sources */,
+				D845A50D24EFF9E10014D30B /* Frameworks */,
+				D845A50E24EFF9E10014D30B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D845A51224EFF9E10014D30B /* PBXTargetDependency */,
+			);
+			name = PadPongTests;
+			productName = PadPongTests;
+			productReference = D845A51024EFF9E10014D30B /* PadPongTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D845A51A24EFF9E10014D30B /* PadPongUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D845A52A24EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPongUITests" */;
+			buildPhases = (
+				D845A51724EFF9E10014D30B /* Sources */,
+				D845A51824EFF9E10014D30B /* Frameworks */,
+				D845A51924EFF9E10014D30B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D845A51D24EFF9E10014D30B /* PBXTargetDependency */,
+			);
+			name = PadPongUITests;
+			productName = PadPongUITests;
+			productReference = D845A51B24EFF9E10014D30B /* PadPongUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D845A4EE24EFF9DC0014D30B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Joe's Studio";
+				TargetAttributes = {
+					D845A4F524EFF9DC0014D30B = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					D845A50F24EFF9E10014D30B = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D845A4F524EFF9DC0014D30B;
+					};
+					D845A51A24EFF9E10014D30B = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = D845A4F524EFF9DC0014D30B;
+					};
+				};
+			};
+			buildConfigurationList = D845A4F124EFF9DC0014D30B /* Build configuration list for PBXProject "PadPong" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D845A4ED24EFF9DC0014D30B;
+			productRefGroup = D845A4F724EFF9DC0014D30B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D845A4F524EFF9DC0014D30B /* PadPong */,
+				D845A50F24EFF9E10014D30B /* PadPongTests */,
+				D845A51A24EFF9E10014D30B /* PadPongUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D845A4F424EFF9DC0014D30B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D845A50524EFF9DC0014D30B /* Main.storyboard in Resources */,
+				D845A4FC24EFF9DC0014D30B /* GameScene.sks in Resources */,
+				D845A50724EFF9E10014D30B /* Assets.xcassets in Resources */,
+				D845A50A24EFF9E10014D30B /* LaunchScreen.storyboard in Resources */,
+				D845A4FE24EFF9DC0014D30B /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A50E24EFF9E10014D30B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A51924EFF9E10014D30B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D845A4F224EFF9DC0014D30B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D845A50024EFF9DC0014D30B /* GameScene.swift in Sources */,
+				D845A50224EFF9DC0014D30B /* GameViewController.swift in Sources */,
+				D845A4FA24EFF9DC0014D30B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A50C24EFF9E10014D30B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D845A51524EFF9E10014D30B /* PadPongTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D845A51724EFF9E10014D30B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D845A52024EFF9E10014D30B /* PadPongUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D845A51224EFF9E10014D30B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D845A4F524EFF9DC0014D30B /* PadPong */;
+			targetProxy = D845A51124EFF9E10014D30B /* PBXContainerItemProxy */;
+		};
+		D845A51D24EFF9E10014D30B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D845A4F524EFF9DC0014D30B /* PadPong */;
+			targetProxy = D845A51C24EFF9E10014D30B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D845A50324EFF9DC0014D30B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D845A50424EFF9DC0014D30B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D845A50824EFF9E10014D30B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D845A50924EFF9E10014D30B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D845A52224EFF9E10014D30B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D845A52324EFF9E10014D30B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D845A52524EFF9E10014D30B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D845A52624EFF9E10014D30B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D845A52824EFF9E10014D30B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPongTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PadPong.app/PadPong";
+			};
+			name = Debug;
+		};
+		D845A52924EFF9E10014D30B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPongTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPongTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PadPong.app/PadPong";
+			};
+			name = Release;
+		};
+		D845A52B24EFF9E10014D30B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPongUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPongUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PadPong;
+			};
+			name = Debug;
+		};
+		D845A52C24EFF9E10014D30B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9PNS76KB97;
+				INFOPLIST_FILE = PadPongUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = joes.studio.PadPongUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PadPong;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D845A4F124EFF9DC0014D30B /* Build configuration list for PBXProject "PadPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D845A52224EFF9E10014D30B /* Debug */,
+				D845A52324EFF9E10014D30B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D845A52424EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D845A52524EFF9E10014D30B /* Debug */,
+				D845A52624EFF9E10014D30B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D845A52724EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPongTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D845A52824EFF9E10014D30B /* Debug */,
+				D845A52924EFF9E10014D30B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D845A52A24EFF9E10014D30B /* Build configuration list for PBXNativeTarget "PadPongUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D845A52B24EFF9E10014D30B /* Debug */,
+				D845A52C24EFF9E10014D30B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D845A4EE24EFF9DC0014D30B /* Project object */;
+}
