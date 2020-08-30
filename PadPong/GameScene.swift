@@ -15,6 +15,8 @@ class GameScene: SKScene {
     var centerX: CGFloat
     
     var ball = Ball(size: 50)
+    var paddle1: Paddle
+    var paddle2: Paddle
     
     var paddle1Position: CGPoint = CGPoint(x: 1241,
                                            y: 512)
@@ -22,7 +24,7 @@ class GameScene: SKScene {
                                            y: 512)
     
     var lastUpdateTime: TimeInterval = 0
-    var dt: TimeInterval = 0
+    var dt = CGFloat.zero
     
     var playerScores:[Int] = [0,0]
     
@@ -30,6 +32,8 @@ class GameScene: SKScene {
     override init(size: CGSize)
     {
         centerX = size.width / 2
+        paddle1 = Paddle(player: 1, screenSize: size)
+        paddle2 = Paddle(player: 2, screenSize: size)
         
         super.init(size: size)
     }
@@ -40,17 +44,25 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView)
     {
-        
+        addChild(ball.shape)
+        addChild(paddle1.shape)
+        addChild(paddle2.shape)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-
+        for touch in touches
+        {
+            touchDown(atPoint: touch.location(in: self))
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-
+        for touch in touches
+        {
+            touchDown(atPoint: touch.location(in: self))
+        }
     }
     
     override func update(_ currentTime: TimeInterval)
@@ -61,7 +73,7 @@ class GameScene: SKScene {
         {
             dt = 0
         } else {
-            dt = currentTime - lastUpdateTime
+            dt = CGFloat(currentTime - lastUpdateTime)
         }
         
         lastUpdateTime = currentTime
@@ -74,11 +86,6 @@ class GameScene: SKScene {
     }
     
     func touchMoved(toPoint pos : CGPoint)
-    {
-
-    }
-    
-    func touchUp(atPoint pos : CGPoint)
     {
 
     }
@@ -168,7 +175,7 @@ class GameScene: SKScene {
         }
 
         // Coast is clear. Let's move.
-        moveNode(ball.shape, delta: pixelsToMove)
+        ball.move(dt: dt)
     
     }
     
@@ -177,7 +184,6 @@ class GameScene: SKScene {
     {
         // Let's move.
         node.position = node.position + delta
-   
     }
     
 }

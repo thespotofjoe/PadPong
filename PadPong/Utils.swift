@@ -101,13 +101,26 @@ class Ball
 
     init (size: Int)
     {
-        // Initialize white square
-        shape = SKShapeNode(rectOf: CGSize(width: size, height: size))
-        shape.fillColor = UIColor.white
-        
         // Set position to center of screen and velocity to 0
         position = CGPoint.zero
         velocity = CGPoint.zero
+        
+        // Initialize white square
+        shape = SKShapeNode(rectOf: CGSize(width: size, height: size))
+        shape.position = position
+        shape.fillColor = UIColor.white
+    }
+    
+    // Function to reduce errors by making 1 place and 1 place only to update the shape's position.
+    func updatePosition()
+    {
+        shape.position = position
+    }
+    
+    func move(dt: CGFloat)
+    {
+        self.position += velocity * dt
+        self.updatePosition()
     }
     
     // Resets ball to center
@@ -135,5 +148,48 @@ class Ball
     func bounceY()
     {
         velocity.y = -velocity.y
+    }
+}
+
+class Paddle
+{
+    var shape: SKShapeNode
+    var position: CGPoint
+    var paddleX: CGFloat
+    
+    let speed = 400
+
+    init (player: Int, screenSize: CGSize)
+    {
+        let width = screenSize.width
+        let midHeight = screenSize.height / 2
+        
+        // Set position to center of screen and velocity to 0
+        if player == 1
+        {
+            paddleX = 150
+        } else {
+            paddleX = width - 150
+        }
+        position = CGPoint(x: paddleX,
+                           y: midHeight)
+        
+        // Initialize white square
+        shape = SKShapeNode(rectOf: CGSize(width: 50, height: 200))
+        self.updatePosition()
+        shape.fillColor = UIColor.darkGray
+    }
+    
+    // Function to reduce errors by making 1 place and 1 place only to update the shape's position.
+    func updatePosition()
+    {
+        shape.position = position
+    }
+    
+    func moveTo(_ position: CGPoint)
+    {
+        self.position = CGPoint(x: paddleX,
+                                y: position.y)
+        self.updatePosition()
     }
 }
