@@ -12,9 +12,9 @@ import GameplayKit
 class GameScene: SKScene {
     
     /* Properties */
-    let maxBallMovement = 400
-    var ballPosition: CGPoint = CGPoint(x: 683,
-                                         y: 512)
+    var centerX: CGFloat
+    
+    var ball = Ball(size: 50)
     
     var paddle1Position: CGPoint = CGPoint(x: 1241,
                                            y: 512)
@@ -27,6 +27,17 @@ class GameScene: SKScene {
     var playerScores:[Int] = [0,0]
     
     /* Overridden functions */
+    override init(size: CGSize)
+    {
+        centerX = size.width / 2
+        
+        super.init(size: size)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func didMove(to view: SKView)
     {
         
@@ -92,7 +103,8 @@ class GameScene: SKScene {
     // Checks if the ball will go off the screen
     func willSomeoneScore(willMove: CGPoint) -> Bool
     {
-        if (ballPosition.x + willMove.x < 0 || ballPosition.x + willMove.x > 1366)
+        let potentialPosition = ball.position + willMove
+        if (potentialPosition.x < 0 || potentialPosition.x > 1366)
         {
             return true
         }
@@ -103,35 +115,39 @@ class GameScene: SKScene {
     // If the ball is off one side of the screen, figure out who scored using this function
     func whoScored() -> Int
     {
-        // If ball is off right side of the screen, Player 1 scored
-        if (whichSideIsItOn(ballPosition) == 2)
+        // If ball is past Player 2's paddle, Player 1 scored.
+        if (whichSideIsItOn(ball.position) == 2)
         {
             return 1
-        } else {
+        } else { // If the ball is past Player 1's paddle, Player 2 scored.
             return 2
         }
     }
     
-    // Function that picks a random direction for the ball when starting from center
-    func setRandomStartDirection() -> CGFloat
-    {
-        // TODO Generate random fraction of a circle here
-        return 2 * .pi //* randomly generated fraction
-    }
-    
-    // Function to determine if a location is on Player 1's side or not.
-    // Useful to streamline moving paddles
+    // Function to determine which side a point is on.
+    // Useful to streamline moving paddles and scoring.
     func whichSideIsItOn(_ point: CGPoint) -> Int
     {
-        // If it's on the left side of the screen...
-        return 1
+        let x = point.x
+        
+        // If it's in the center, it's on nobody's side, so return 0.
+        if x == centerX
+        {
+            return 0
+        }
+        
+        // If it's on the left side of the screen it's player 1, so return 1.
+        if x < centerX
+        {
+            return 1
+        }
         
         // Otherwise it's Player 2... so return...
-        //return 2
+        return 2
     }
     
-    // Function to move the ball
-    func moveBall(_ ball: SKSpriteNode, velocity: CGPoint)
+    // Function to move the ball.
+    func moveBall(velocity: CGPoint)
     {
         // How much we gonna move?
         let pixelsToMove = CGPoint(x: velocity.x * CGFloat(dt),
@@ -145,22 +161,22 @@ class GameScene: SKScene {
         }
         
         // If we move the ball, will someone score?
-        willSomeoneScore(willMove: pixelsToMove)
-        
-        // Adjust score accordingly
-        adjustScore(player: whoScored())
+        if willSomeoneScore(willMove: pixelsToMove)
+        {
+            adjustScore(player: whoScored())
+            ball.reset()
+        }
 
         // Coast is clear. Let's move.
-        moveSprite(ball, pixels: pixelsToMove)
+        moveNode(ball.shape, delta: pixelsToMove)
     
     }
     
     // Function to perform movement... It moves!
-    func moveSprite(_ sprite: SKSpriteNode, pixels: CGPoint)
+    func moveNode(_ node: SKNode, delta: CGPoint)
     {
         // Let's move.
-        sprite.position = CGPoint(x: sprite.position.x + pixels.x,
-                                  y: sprite.position.y + pixels.y)
+        node.position = node.position + delta
    
     }
     
