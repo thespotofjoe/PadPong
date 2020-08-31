@@ -12,7 +12,9 @@ import GameplayKit
 class GameScene: SKScene {
     
     /* Properties */
-    var centerX: CGFloat
+    var centerX = CGFloat.zero
+    var height = CGFloat.zero
+    var width = CGFloat.zero
     
     var ball = Ball(size: 50)
     var paddles: [Int : Paddle] = [:]
@@ -20,14 +22,15 @@ class GameScene: SKScene {
     var lastUpdateTime: TimeInterval = 0
     var dt = CGFloat.zero
     
-    
     var playerScores:[Int : Int] = [1: 0, 2: 0]
     var scoreLabels:[Int : SKLabelNode] = [:]
     
     /* Overridden functions */
     override init(size: CGSize)
     {
-        centerX = size.width / 2
+        height = size.height
+        width = size.width
+        
         paddles[1] = Paddle(player: 1, screenSize: size)
         paddles[2] = Paddle(player: 2, screenSize: size)
                 
@@ -39,12 +42,23 @@ class GameScene: SKScene {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        
+        //var size = UIScreen.main.bounds.size
+        height = size.height
+        width = size.width
+        
+        paddles[1] = Paddle(player: 1, screenSize: size)
+        paddles[2] = Paddle(player: 2, screenSize: size)
+        
+        // Connect score labels to code so we can display score changes to the user.
+        scoreLabels[1] = self.childNode(withName: "player1ScoreLabel") as! SKLabelNode
+        scoreLabels[2] = self.childNode(withName: "player2ScoreLabel") as! SKLabelNode
     }
     
     override func didMove(to view: SKView)
     {
-        addChild(ball.shape)
+        ball.addToView(self)
         addChild(paddles[1]!.shape)
         addChild(paddles[2]!.shape)
     }
@@ -80,16 +94,23 @@ class GameScene: SKScene {
         
         // Move the ball.
         ball.move(dt: dt)
+        //print("Moved ball. dt: \(dt)")
         
         // Check for collisions.
         if didBallHitPaddle()
         {
             ball.bounceOffVertical()
         }
-        /* if didBallHitYBounds() {ball.bounceOffHorizontal()}*/
+        
+        // Bounce off top and bottom of screen
+        if ball.isOutOfYBounds(maxHeight: height)
+        {
+            ball.bounceOffHorizontal()
+        }
 
         if didSomeoneScore()
         {
+            //print("Someone scored!")
             adjustScore(player: whoScored())
             ball.reset()
         }
@@ -99,13 +120,13 @@ class GameScene: SKScene {
     func touchDown(atPoint pos : CGPoint)
     {
         let whichPlayer = whichSideIsItOn(pos)
-        paddles[whichPlayer]!.updatePosition(pos)
+        paddles[whichPlayer]!.moveTo(pos.y)
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
         let whichPlayer = whichSideIsItOn(pos)
-        paddles[whichPlayer]!.updatePosition(pos)
+        paddles[whichPlayer]!.moveTo(pos.y)
     }
     
     func adjustScore(player: Int)
@@ -113,7 +134,7 @@ class GameScene: SKScene {
         if player == 1 || player == 2
         {
             playerScores[player]! += 1
-            
+            scoreLabels[player]!.text = "\(playerScores[player]!)"
         }
     }
     
@@ -122,11 +143,13 @@ class GameScene: SKScene {
     {
         if ball.leftX < paddles[1]!.rightX && ball.position.y > paddles[1]!.bottomY && ball.position.y < paddles[1]!.topY
         {
+            print("Ball hit left paddle.")
             return true
         }
         
-        if ball.rightX > paddles[2]!.rightX && ball.position.y > paddles[2]!.bottomY && ball.position.y < paddles[2]!.topY
+        if ball.rightX > paddles[2]!.leftX && ball.position.y > paddles[2]!.bottomY && ball.position.y < paddles[2]!.topY
         {
+            print("Ball hit right paddle")
             return true
         }
         
@@ -136,7 +159,7 @@ class GameScene: SKScene {
     // Checks if the ball will go off the screen
     func didSomeoneScore() -> Bool
     {
-        if (ball.position.x < 0 || ball.position.x > 1366)
+        if (ball.position.x < -width/2 || ball.position.x > width/2)
         {
             return true
         }
