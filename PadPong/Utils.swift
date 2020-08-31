@@ -96,11 +96,16 @@ class Ball
     var shape: SKShapeNode
     var velocity: CGPoint
     var position: CGPoint
+    var leftX: CGFloat
+    var rightX: CGFloat
+    var size: Int
     
     let speed = 400
 
     init (size: Int)
     {
+        self.size = size
+        
         // Set position to center of screen and velocity to 0
         position = CGPoint.zero
         velocity = CGPoint.zero
@@ -108,19 +113,23 @@ class Ball
         // Initialize white square
         shape = SKShapeNode(rectOf: CGSize(width: size, height: size))
         shape.position = position
+        leftX = position.x - CGFloat(size)/2
+        rightX = position.x + CGFloat(size)/2
         shape.fillColor = UIColor.white
     }
     
     // Function to reduce errors by making 1 place and 1 place only to update the shape's position.
-    func updatePosition()
+    func updatePosition(_ newPosition: CGPoint)
     {
+        self.position = newPosition
         shape.position = position
+        leftX = position.x - CGFloat(size)/2
+        rightX = position.x + CGFloat(size)/2
     }
     
     func move(dt: CGFloat)
     {
-        self.position += velocity * dt
-        self.updatePosition()
+        self.updatePosition(position + velocity * dt)
     }
     
     // Resets ball to center
@@ -139,13 +148,13 @@ class Ball
     }
     
     // Bounces ball off a horizontal barrier
-    func bounceX()
+    func bounceOffHorizontal()
     {
         velocity.x = -velocity.x
     }
     
     // Bounces ball off a vertical barrier
-    func bounceY()
+    func bounceOffVertical()
     {
         velocity.y = -velocity.y
     }
@@ -156,8 +165,13 @@ class Paddle
     var shape: SKShapeNode
     var position: CGPoint
     var paddleX: CGFloat
+    var leftX: CGFloat
+    var rightX: CGFloat
+    var topY: CGFloat
+    var bottomY: CGFloat
     
-    let speed = 400
+    let height = 400
+    let width = 50
 
     init (player: Int, screenSize: CGSize)
     {
@@ -176,20 +190,28 @@ class Paddle
         
         // Initialize white square
         shape = SKShapeNode(rectOf: CGSize(width: 50, height: 200))
-        self.updatePosition()
+        shape.position = position
+        leftX = position.x - CGFloat(width)/2
+        rightX = position.x + CGFloat(width)/2
+        topY = position.y + CGFloat(height)/2
+        bottomY = position.y - CGFloat(height)/2
         shape.fillColor = UIColor.darkGray
     }
     
     // Function to reduce errors by making 1 place and 1 place only to update the shape's position.
-    func updatePosition()
+    func updatePosition(_ newPosition: CGPoint)
     {
+        self.position = newPosition
         shape.position = position
+        leftX = position.x - CGFloat(width)/2
+        rightX = position.x + CGFloat(width)/2
+        topY = position.y + CGFloat(height)/2
+        bottomY = position.y - CGFloat(height)/2
     }
     
     func moveTo(_ position: CGPoint)
     {
-        self.position = CGPoint(x: paddleX,
-                                y: position.y)
-        self.updatePosition()
+        self.updatePosition(CGPoint(x: paddleX,
+                                    y: position.y))
     }
 }

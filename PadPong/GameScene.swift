@@ -15,27 +15,27 @@ class GameScene: SKScene {
     var centerX: CGFloat
     
     var ball = Ball(size: 50)
-    var paddle1: Paddle
-    var paddle2: Paddle
-    
-    var paddle1Position: CGPoint = CGPoint(x: 1241,
-                                           y: 512)
-    var paddle2Position: CGPoint = CGPoint(x: 125,
-                                           y: 512)
+    var paddles: [Int : Paddle] = [:]
     
     var lastUpdateTime: TimeInterval = 0
     var dt = CGFloat.zero
     
-    var playerScores:[Int] = [0,0]
+    
+    var playerScores:[Int : Int] = [1: 0, 2: 0]
+    var scoreLabels:[Int : SKLabelNode] = [:]
     
     /* Overridden functions */
     override init(size: CGSize)
     {
         centerX = size.width / 2
-        paddle1 = Paddle(player: 1, screenSize: size)
-        paddle2 = Paddle(player: 2, screenSize: size)
-        
+        paddles[1] = Paddle(player: 1, screenSize: size)
+        paddles[2] = Paddle(player: 2, screenSize: size)
+                
         super.init(size: size)
+        
+        // Connect score labels to code so we can display score changes to the user.
+        scoreLabels[1] = self.childNode(withName: "player1ScoreLabel") as! SKLabelNode
+        scoreLabels[2] = self.childNode(withName: "player2ScoreLabel") as! SKLabelNode
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,8 +45,8 @@ class GameScene: SKScene {
     override func didMove(to view: SKView)
     {
         addChild(ball.shape)
-        addChild(paddle1.shape)
-        addChild(paddle2.shape)
+        addChild(paddles[1]!.shape)
+        addChild(paddles[2]!.shape)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
@@ -77,41 +77,66 @@ class GameScene: SKScene {
         }
         
         lastUpdateTime = currentTime
+        
+        // Move the ball.
+        ball.move(dt: dt)
+        
+        // Check for collisions.
+        if didBallHitPaddle()
+        {
+            ball.bounceOffVertical()
+        }
+        /* if didBallHitYBounds() {ball.bounceOffHorizontal()}*/
+
+        if didSomeoneScore()
+        {
+            adjustScore(player: whoScored())
+            ball.reset()
+        }
     }
 
     /* Our functions */
     func touchDown(atPoint pos : CGPoint)
     {
-
+        let whichPlayer = whichSideIsItOn(pos)
+        paddles[whichPlayer]!.updatePosition(pos)
     }
     
     func touchMoved(toPoint pos : CGPoint)
     {
-
+        let whichPlayer = whichSideIsItOn(pos)
+        paddles[whichPlayer]!.updatePosition(pos)
     }
     
     func adjustScore(player: Int)
     {
-        playerScores[player] += 1
+        if player == 1 || player == 2
+        {
+            playerScores[player]! += 1
+            
+        }
     }
     
     // Detect if the ball will hit the paddle in the next screen update
-    func willBallHitPaddle(ballWillMove: CGPoint) -> Bool
+    func didBallHitPaddle() -> Bool
     {
-        // Calculate next position if ball moves
-        // Detect whether this position is either touching or inside Paddle1
-            // If it is, return true
-        // Detect whether this position is either touching or inside Paddle2
-            // If it is, return true
-        // If we got here, it won't hit the paddle, so return false
+        if ball.leftX < paddles[1]!.rightX && ball.position.y > paddles[1]!.bottomY && ball.position.y < paddles[1]!.topY
+        {
+            return true
+        }
+        
+        if ball.rightX > paddles[2]!.rightX && ball.position.y > paddles[2]!.bottomY && ball.position.y < paddles[2]!.topY
+        {
+            return true
+        }
+        
         return false
     }
     
     // Checks if the ball will go off the screen
-    func willSomeoneScore(willMove: CGPoint) -> Bool
+    func didSomeoneScore() -> Bool
     {
-        let potentialPosition = ball.position + willMove
-        if (potentialPosition.x < 0 || potentialPosition.x > 1366)
+        if (ball.position.x < 0 || ball.position.x > 1366)
         {
             return true
         }
@@ -156,27 +181,7 @@ class GameScene: SKScene {
     // Function to move the ball.
     func moveBall(velocity: CGPoint)
     {
-        // How much we gonna move?
-        let pixelsToMove = CGPoint(x: velocity.x * CGFloat(dt),
-                                   y: velocity.y * CGFloat(dt))
-        // If we move, will the ball hit the paddle?
-        if (willBallHitPaddle(ballWillMove: pixelsToMove))
-        {
-            // TODO Calculate where ball would be after dt, set var position to it
-            //ball.position = position
-            return
-        }
-        
-        // If we move the ball, will someone score?
-        if willSomeoneScore(willMove: pixelsToMove)
-        {
-            adjustScore(player: whoScored())
-            ball.reset()
-        }
-
-        // Coast is clear. Let's move.
         ball.move(dt: dt)
-    
     }
     
     // Function to perform movement... It moves!
